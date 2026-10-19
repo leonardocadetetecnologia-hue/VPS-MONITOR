@@ -1,0 +1,4 @@
+# RESERVADO PARA A PRÓXIMA ETAPA — não instalar no MVP.
+# Coleta real (app/collectors/future.py) só depois de aprovação explícita
+# e rodando na própria VPS, sem SSH a partir do dashboard.
+# psutil==7.*

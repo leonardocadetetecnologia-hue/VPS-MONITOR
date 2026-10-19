@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPS Insight</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232a78d6'/%3E%3Cpath d='M3 11l3-4 3 2 4-5' stroke='white' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+  <script src="/static/vendor/chart.umd.min.js" defer></script>
+  <script type="module" src="/static/js/app.js"></script>
+</head>
+<body>
+  <div class="faixa-simulado" role="status">
+    <strong>DADOS SIMULADOS</strong>
+    <span>Gerados localmente. Nenhuma informação vem da VPS de produção.</span>
+  </div>
+
+  <div class="layout">
+    <aside class="lateral">
+      <div class="marca">
+        <span class="marca-icone" aria-hidden="true"></span>
+        <div>
+          <div class="marca-nome">VPS Insight</div>
+          <div class="marca-sub">monitoramento investigativo</div>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Telas">
+        <a href="#/visao-geral" data-rota="visao-geral">Visão geral</a>
+        <a href="#/processos" data-rota="processos">Processos</a>
+        <a href="#/servicos" data-rota="servicos">Serviços</a>
+        <a href="#/historico" data-rota="historico">Histórico</a>
+        <a href="#/linha-do-tempo" data-rota="linha-do-tempo">Linha do tempo</a>
+        <a href="#/diagnostico" data-rota="diagnostico">Diagnóstico</a>
+        <a href="#/integracoes" data-rota="integracoes">Integrações futuras</a>
+        <a href="#/auditoria" data-rota="auditoria">Auditoria</a>
+      </nav>
+      <div class="lateral-rodape">
+        <div>Host: <code>vps-corporativa (fictício)</code></div>
+        <div>Ubuntu 24.04.4 · 4 vCPU · 15 GiB</div>
+        <button type="button" class="botao-fantasma" id="alternar-tema">Alternar tema</button>
+      </div>
+    </aside>
+
+    <main class="conteudo">
+      <header class="cabecalho">
+        <h1 id="titulo-tela">Visão geral</h1>
+        <div class="cabecalho-acoes">
+          <span class="atualizado" id="atualizado-em" aria-live="polite"></span>
+          <button type="button" class="botao" id="atualizar">Atualizar</button>
+        </div>
+      </header>
+      <p id="aviso-atualizacao" class="aviso-atualizacao" role="alert" hidden></p>
+      <div id="tela" class="tela"></div>
+    </main>
+  </div>
+</body>
+</html>

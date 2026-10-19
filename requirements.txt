@@ -1,0 +1,4 @@
+# Execução do dashboard (versões testadas em 16/10/2026)
+fastapi==0.143.3
+uvicorn==0.54.0
+pydantic==2.14.1

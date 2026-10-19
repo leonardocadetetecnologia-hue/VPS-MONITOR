@@ -1,0 +1,42 @@
+[project]
+name = "vps-insight"
+version = "0.1.0"
+description = "Monitoramento investigativo de VPS — MVP com dados simulados"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+    # aviso da própria Starlette sobre o TestClient; não afeta o app
+    "ignore:Using `httpx` with `starlette.testclient`",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/W estilo, F erros, I imports, B bugs prováveis, UP sintaxe moderna,
+# SIM simplificações, RUF regras do ruff, DTZ datetime sem fuso, S segurança (bandit)
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "DTZ", "S"]
+ignore = [
+    "RUF001", "RUF002", "RUF003",  # acentos e travessões são intencionais (projeto em pt-BR)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# assert é o idioma do pytest; host 0.0.0.0 e datetime sem fuso aparecem de propósito
+# nos testes que provam que esses valores são RECUSADOS.
+"tests/**" = ["S101", "S104", "DTZ001", "S608"]
+# o verificador executa ferramentas locais (ruff, mypy, node, o próprio app) por subprocess
+"scripts/**" = ["S603", "S607"]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+check_untyped_defs = true
+disallow_incomplete_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+strict_equality = true

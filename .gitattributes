@@ -1,0 +1,5 @@
+# Quebras de linha LF no repositório (scripts .sh quebram com CRLF)
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.min.js -diff
